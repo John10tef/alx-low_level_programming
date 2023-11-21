@@ -12,36 +12,31 @@ void create_word(char **, char *, int, int, int);
 */
 char **strtow(char *str)
 {
-  int i, flag, len;
-  char **words;
-
-  if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
-     return (NULL);
-
-  i = flag = len = 0;
-  while (str[i])
-  {
-     if (flag == 0 && str[i] != ' ')
-        flag = 1;
-     if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
-     {
-        flag = 0;
-        len++;
-     }
-     i++;
-  }
-
-  len += flag == 1 ? 1 : 0;
-  if (len == 0)
-     return (NULL);
-
-  words = (char **)malloc(sizeof(char *) * (len + 1));
-  if (words == NULL)
-     return (NULL);
-
-  util(words, str);
-  words[len] = NULL;
-  return (words);
+int i, flag, len;
+char **words;
+if (str == NULL || str[0] == '\0' || (str[0] == ' ' && str[1] == '\0'))
+return (NULL);
+i = flag = len = 0;
+while (str[i])
+{
+if (flag == 0 && str[i] != ' ')
+flag = 1;
+if (i > 0 && str[i] == ' ' && str[i - 1] != ' ')
+{
+flag = 0;
+len++;
+}
+i++;
+}
+len += flag == 1 ? 1 : 0;
+if (len == 0)
+return (NULL);
+words = (char **)malloc(sizeof(char *) * (len + 1));
+if (words == NULL)
+return (NULL);
+util(words, str);
+words[len] = NULL;
+return (words);
 }
 
 /**
@@ -51,13 +46,12 @@ char **strtow(char *str)
 */
 void util(char **words, char *str)
 {
-  int i, j, start, flag;
-
-  i = j = flag = 0;
-  while (str[i])
-  {
-     if (flag == 0 && str[i] != ' ')
-     {
-        start = i;
-        flag = 1;
-     }
+int i, j, start, flag;
+i = j = flag = 0;
+while (str[i])
+{
+if (flag == 0 && str[i] != ' ')
+{
+start = i;
+flag = 1;
+}     
