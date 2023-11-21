@@ -35,7 +35,7 @@ str[j] = s[k];
 k++;
 j++;
 }
-str[j++] = '\n';  
+str[j++] = '\n';
 }
 str[j] = '\0';
 return (str);
